@@ -1,9 +1,11 @@
 from typing import Any
 
 import requests
+import os
 from mcp.server.fastmcp import FastMCP
 
-mcp = FastMCP("Binance MCP", port=8897)
+PORT = int(os.getenv("PORT", "8897"))
+mcp = FastMCP("Binance MCP")
 
 
 def get_symbol_from_name(name: str) -> str:
@@ -56,7 +58,7 @@ if __name__ == "__main__":
     # mcp.run(transport="stdio")
 
     # Access the MCP via the SSE protocol thourgh <<server_url>>/sse
-    mcp.run(transport="sse")
+    mcp.run(transport="sse", host="0.0.0.0", port=PORT)
 
     # Access the MCP via the Streamable HTTP protocol thourgh <<server_url>>/streamable-http
     # mcp.run(transport="streamable-http")
