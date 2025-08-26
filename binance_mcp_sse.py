@@ -5,8 +5,7 @@ import os
 from mcp.server.fastmcp import FastMCP
 
 PORT = int(os.getenv("PORT", "8897"))
-mcp = FastMCP("Binance MCP")
-
+mcp = FastMCP("Binance MCP", host="0.0.0.0", port=PORT)
 
 def get_symbol_from_name(name: str) -> str:
     if name.lower() in ["bitcoin", "btc"]:
@@ -58,7 +57,7 @@ if __name__ == "__main__":
     # mcp.run(transport="stdio")
 
     # Access the MCP via the SSE protocol thourgh <<server_url>>/sse
-    mcp.run(transport="sse", host="0.0.0.0", port=PORT)
+    mcp.run(transport="sse")
 
     # Access the MCP via the Streamable HTTP protocol thourgh <<server_url>>/streamable-http
     # mcp.run(transport="streamable-http")
