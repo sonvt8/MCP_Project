@@ -1,0 +1,17 @@
+# ----- OpenStack connection -----
+OS_HOST=your_host_here
+OS_USERNAME=admin
+OS_PASSWORD=your_password_here
+OS_PROJECT_ID=xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+OS_USER_DOMAIN_NAME=Default
+
+# SSL verify: true/false/1/0/yes/no  (mặc định false để khớp môi trường bạn đang chạy)
+OS_VERIFY_SSL=false
+
+# Optional
+OS_REQUEST_TIMEOUT=60
+
+# ----- MCP server (chỉ dùng cho mcp_openstack_requests.py) -----
+MCP_HOST=0.0.0.0
+MCP_PORT=8083
+LOG_LEVEL=INFO
